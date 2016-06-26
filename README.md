@@ -16,6 +16,9 @@ $ nodemon bin/www
 ```
 
 ## 配置选项
+
 #### type 图片格式(暂时支持jpg、png)
+
 #### color 图片颜色，使用让rgb(i,i,i)配置
+
 #### opacity 图片透明图配置(仅在type=png时生效)
