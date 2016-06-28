@@ -53,6 +53,8 @@ exports.parseRgb = function (str) {
 };
 
 exports.parseRGB = function (str) {
+    if (!str) return undefined;
     let reg_rgba = /[RGB|rgb]\(([\d]+),([\d]+),([\d]+)\)/;
-        return str.match(reg_rgba).map(_str=>parseInt(_str));
+    let _rgb = str.match(reg_rgba).map(_str=>parseInt(_str));
+    return [_rgb[1], _rgb[2], _rgb[3]];
 };

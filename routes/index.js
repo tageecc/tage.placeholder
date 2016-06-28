@@ -10,8 +10,9 @@ router.get('/', function (req, res, next) {
 
 router.get(/\/([\d]+)[x|X]([\d]+)/, (req, res, next)=> {
     let {'0':_width, '1':_height}=req.params;
-    let _rgba = Color.parseRGB(req.query.color);
-    let [_color=[204, 204, 204],_type='jpg',_opacity=1]=[[_rgba[1], _rgba[2], _rgba[3]], req.query.type, parseFloat(req.query.opacity)];
+    console.log(Color.parseRGB(req.query.color),req.query.type);
+    let [_color=[204, 204, 204],_type='jpg',_opacity=1]=[Color.parseRGB(req.query.color), req.query.type, req.query.opacity?parseFloat(req.query.opacity):undefined];
+    console.log(_color,_type,_opacity);
     let _type_index = ['jpg', 'png'].findIndex(item=>item == _type);
     if (_type_index < 0) {
         res.status(404);
